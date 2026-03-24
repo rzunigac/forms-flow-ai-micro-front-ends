@@ -135,11 +135,11 @@ export const TaskHistoryModal: React.FC<TaskHistoryModalProps> = React.memo(
 
                     <div className="details">
                       <div>
-                        <p>Submitted By</p>
+                        <p>{t("Submitted By")}</p>
                         <p>{entry.submittedBy || "N/A"}</p>
                       </div>
                       <div>
-                        <p>Created On</p>
+                        <p>{t("Created On")}</p>
                         <p>{entry.created ? HelperServices.getLocalDateAndTime(entry.created) : "N/A"}</p>
                       </div>
                     </div>
