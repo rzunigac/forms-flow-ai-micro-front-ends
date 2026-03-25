@@ -129,6 +129,16 @@ const dropdownOptions = useMemo(() => {
   return (
     <>
       {showSelector && (manageMyTasks || assignToOthers) && (
+        <>
+        <div>
+          <span
+            className="assign-user-label white-text"
+            aria-label={`${ariaLabel}-select-user-label`}
+            data-testid={`${dataTestId}-select-user-label`}
+          >
+            {t("Task assignee")}
+          </span>
+        </div>
         <div
           className={"input-select quick-select " + (minimized?'minimized':'')}
           aria-label={`${ariaLabel}-select-user-option`}
@@ -159,6 +169,7 @@ const dropdownOptions = useMemo(() => {
             }
           </div>
         </div>
+        </>
       )}
       {/* Show InputDropdown when either Me or Others is selected */}
       {(selected === "Me" || selected === "Others")  && (
