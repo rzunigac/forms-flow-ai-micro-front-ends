@@ -136,9 +136,11 @@ $animSpeed: 300ms;
   --secondary-btn-font-color: #{$primary};
   --secondary-btn-bg-color: #{$primary-light};
   --default-link-color: #{$primary};
+  --esm-btn-border-radius: 0.78rem; // 12.5px - Extra Small
   --sm-btn-border-radius: var(--radius-md);
   --md-btn-border-radius: var(--radius-md);
   --lg-btn-border-radius: var(--radius-lg);
+  --m-btn-border-radius: var(--radius-md); // Medium (21.5px) - for backward compatibility
   --default-font-size: 1rem; 
   --default-font-color: #{$gray-dark};
   --navbar-width: 192px;

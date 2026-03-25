@@ -360,8 +360,8 @@ $danger-color: var(--ff-danger);
   }
 
   .button-dropdown {
-    border-top-left-radius: $borderRadiusHeightSM !important;
-    border-bottom-left-radius: $borderRadiusHeightSM !important;
+    border-top-left-radius: var(--sm-btn-border-radius) !important;
+    border-bottom-left-radius: var(--sm-btn-border-radius) !important;
     padding: var(--spacer-050) var(--spacer-075) !important;
     justify-content: start !important;
     width: 100%;
@@ -703,7 +703,7 @@ $danger-color: var(--ff-danger);
 
     background-color: var(--primary-btn-bg-color);
 
-    border-radius: var(--lg-btn-border-radius, #{$borderRadiusHeightL});
+    border-radius: var(--lg-btn-border-radius);
 
     &[disabled] {
       background-color: $gray-medium-dark;
@@ -715,7 +715,7 @@ $danger-color: var(--ff-danger);
 
     background-color: var(--secondary-btn-bg-color);
 
-    border-radius: var(--lg-btn-border-radius, #{$borderRadiusHeightL});
+    border-radius: var(--lg-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-light);
@@ -736,10 +736,10 @@ $danger-color: var(--ff-danger);
     display: flex;
     align-items: center;
     gap: $paddingLvl5S;
-    
+
     background-color: $primary-light;
 
-    border-radius: var(--lg-btn-border-radius, #{$borderRadiusHeightL});
+    border-radius: var(--lg-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-light);
@@ -795,7 +795,7 @@ $danger-color: var(--ff-danger);
 
     background-color: var(--primary-btn-bg-color);
 
-    border-radius: var(--sm-btn-border-radius, #{$borderRadiusHeightM});
+    border-radius: var(--m-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-light);
@@ -813,7 +813,7 @@ $danger-color: var(--ff-danger);
 
     background-color: var(--secondary-btn-bg-color);
 
-    border-radius: var(--sm-btn-border-radius, #{$borderRadiusHeightSM});
+    border-radius: var(--sm-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-light);
@@ -839,7 +839,7 @@ $danger-color: var(--ff-danger);
 
     background-color: var(--secondary-btn-bg-color);
 
-    border-radius: var(--sm-btn-border-radius, #{$borderRadiusHeightSM});
+    border-radius: var(--sm-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-light);
@@ -865,7 +865,7 @@ $danger-color: var(--ff-danger);
 
     background-color: $gray-dark;
 
-    border-radius: var(--sm-btn-border-radius, #{$borderRadiusHeightSM});
+    border-radius: var(--sm-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-medium-dark);
@@ -883,7 +883,7 @@ $danger-color: var(--ff-danger);
 
     background-color: $white-color;
 
-    border-radius: var(--sm-btn-border-radius, #{$borderRadiusHeightSM});
+    border-radius: var(--sm-btn-border-radius);
 
     &[disabled] {
       @include buttonBase($gray-medium-dark);
@@ -911,7 +911,7 @@ $danger-color: var(--ff-danger);
 
     background-color: $primary;
 
-    border-radius: $borderRadiusHeightSM !important;
+    border-radius: var(--sm-btn-border-radius) !important;
 
     .extra-action {
       overflow: hidden;
@@ -921,8 +921,8 @@ $danger-color: var(--ff-danger);
 
       background-color: $primary;
 
-      border-bottom-left-radius: $borderRadiusHeightSM !important;
-      border-top-left-radius: $borderRadiusHeightSM !important;
+      border-bottom-left-radius: var(--sm-btn-border-radius) !important;
+      border-top-left-radius: var(--sm-btn-border-radius) !important;
 
       button {
         &:nth-child(1) {
@@ -934,8 +934,8 @@ $danger-color: var(--ff-danger);
 
           padding: calc($paddingLvl6TB - $lineThick/2) $paddingLvl6LR !important;
 
-          border-bottom-left-radius: $borderRadiusHeightSM !important;
-          border-top-left-radius: $borderRadiusHeightSM !important;
+          border-bottom-left-radius: var(--sm-btn-border-radius) !important;
+          border-top-left-radius: var(--sm-btn-border-radius) !important;
 
           border: $lineThick/2 solid $primary !important;
           border-right: none !important;
@@ -994,8 +994,8 @@ $danger-color: var(--ff-danger);
       margin-left: 0 !important;
 
       background-color: color-mix(in srgb, $primary 15%, $white-color 0%) !important;
-      border-top-right-radius: $borderRadiusHeightSM !important;
-      border-bottom-right-radius: $borderRadiusHeightSM !important;
+      border-top-right-radius: var(--sm-btn-border-radius) !important;
+      border-bottom-right-radius: var(--sm-btn-border-radius) !important;
 
       border: none !important;
 
@@ -1033,7 +1033,7 @@ $danger-color: var(--ff-danger);
         @include paddingLvl6();
         @include clickableFeedback2();
 
-        border-radius: $borderRadiusHeightSM !important;
+        border-radius: var(--sm-btn-border-radius) !important;
         white-space: normal !important;
         word-break: break-word !important;
 
@@ -1140,7 +1140,7 @@ $danger-color: var(--ff-danger);
       background-color: $white;
       border: $lineThick/2 solid $primary;
 
-      border-radius: $borderRadiusHeightSM;
+      border-radius: var(--sm-btn-border-radius);
 
       input {
         position: absolute;
@@ -1195,7 +1195,7 @@ $danger-color: var(--ff-danger);
 
       outline: $lineThin solid $primary;
       border: none;
-      border-radius: $borderRadiusHeightSM;
+      border-radius: var(--sm-btn-border-radius);
 
       &:focus-visible,
       &:focus-within,
@@ -1224,8 +1224,8 @@ $danger-color: var(--ff-danger);
       background-color: $transparent;
 
       border: none;
-      border-top-right-radius: $borderRadiusHeightSM;
-      border-bottom-right-radius: $borderRadiusHeightSM;
+      border-top-right-radius: var(--sm-btn-border-radius);
+      border-bottom-right-radius: var(--sm-btn-border-radius);
     }
   }
 
@@ -1334,7 +1334,7 @@ $danger-color: var(--ff-danger);
       text-overflow: ellipsis;
 
       border: $lineThin solid $primary;
-      border-radius: $borderRadiusHeightSM;
+      border-radius: var(--sm-btn-border-radius);
 
       &:focus,
       &.collapsed {
@@ -1392,8 +1392,8 @@ $danger-color: var(--ff-danger);
       border-top: none;
       outline: $lineThin solid $primary;
 
-      border-bottom-left-radius: $borderRadiusHeightSM;
-      border-bottom-right-radius: $borderRadiusHeightSM;
+      border-bottom-left-radius: var(--sm-btn-border-radius);
+      border-bottom-right-radius: var(--sm-btn-border-radius);
 
       background-color: $white-color;
 
@@ -1411,7 +1411,7 @@ $danger-color: var(--ff-danger);
         white-space: normal;
         word-break: break-word;
 
-        border-radius: $borderRadiusHeightSM;
+        border-radius: var(--sm-btn-border-radius);
 
         &.chosen { //.selected-dropdown-item
           @include textBaseHightlight($fontBase, $white-color);
@@ -1447,13 +1447,13 @@ $danger-color: var(--ff-danger);
           border: $lineThin solid $primary;
 
           &:first-child {
-            border-top-left-radius: $borderRadiusHeightSM;
-            border-bottom-left-radius: $borderRadiusHeightSM;
+            border-top-left-radius: var(--sm-btn-border-radius);
+            border-bottom-left-radius: var(--sm-btn-border-radius);
           }
 
           &:last-child {
-            border-top-right-radius: $borderRadiusHeightSM;
-            border-bottom-right-radius: $borderRadiusHeightSM;
+            border-top-right-radius: var(--sm-btn-border-radius);
+            border-bottom-right-radius: var(--sm-btn-border-radius);
           }
 
           &:nth-child(2) {
@@ -1509,8 +1509,8 @@ $danger-color: var(--ff-danger);
             background-color: $primary;
 
             border: none;
-            border-top-left-radius: $borderRadiusHeightSM;
-            border-bottom-left-radius: $borderRadiusHeightSM;
+            border-top-left-radius: var(--sm-btn-border-radius);
+            border-bottom-left-radius: var(--sm-btn-border-radius);
 
             clip-path: polygon(0 0, 100% 0, calc(100% - $sizeOfSlash) 100%, 0% 100%);
             
@@ -1518,13 +1518,13 @@ $danger-color: var(--ff-danger);
               margin-left: calc(0px - 1rem);
 
               border-radius: 0;
-              border-top-right-radius: $borderRadiusHeightSM;
-              border-bottom-right-radius: $borderRadiusHeightSM;
+              border-top-right-radius: var(--sm-btn-border-radius);
+              border-bottom-right-radius: var(--sm-btn-border-radius);
 
               clip-path: polygon(calc(0px + $sizeOfSlash) 0, 100% 0, 100% 100%, 0% 100%);
 
               .outer {
-                clip-path: inset($lineThin $lineThin round 0 $borderRadiusHeightSM $borderRadiusHeightSM 0);
+                clip-path: inset($lineThin $lineThin round 0 var(--sm-btn-border-radius) var(--sm-btn-border-radius) 0);
               }
 
               .inner {
@@ -1536,7 +1536,7 @@ $danger-color: var(--ff-danger);
 
             &:hover {
               .outer {
-                clip-path: inset(calc($lineThin*2) calc($lineThin*2) round $borderRadiusHeightSM 0 0 $borderRadiusHeightSM);
+                clip-path: inset(calc($lineThin*2) calc($lineThin*2) round var(--sm-btn-border-radius) 0 0 var(--sm-btn-border-radius));
               }
 
               .inner {
@@ -1552,8 +1552,8 @@ $danger-color: var(--ff-danger);
               left: 0;
 
               background-color: $primary;
-              
-              clip-path: inset($lineThin $lineThin round $borderRadiusHeightSM 0 0 $borderRadiusHeightSM);
+
+              clip-path: inset($lineThin $lineThin round var(--sm-btn-border-radius) 0 0 var(--sm-btn-border-radius));
             }
 
             .inner {
@@ -1589,13 +1589,13 @@ $danger-color: var(--ff-danger);
             padding: calc($paddingLvl6S - $lineThin) $paddingLvl5S;
 
             &:first-child {
-              border-top-left-radius: $borderRadiusHeightESM;
-              border-bottom-left-radius: $borderRadiusHeightESM;
+              border-top-left-radius: var(--esm-btn-border-radius);
+              border-bottom-left-radius: var(--esm-btn-border-radius);
             }
 
             &:last-child {
-              border-top-right-radius: $borderRadiusHeightESM;
-              border-bottom-right-radius: $borderRadiusHeightESM;
+              border-top-right-radius: var(--esm-btn-border-radius);
+              border-bottom-right-radius: var(--esm-btn-border-radius);
             }
 
             &:nth-child(2) {
@@ -1610,7 +1610,7 @@ $danger-color: var(--ff-danger);
 
             padding: calc($paddingLvl6S - $lineThin) calc($paddingLvl5S*2 + $base) calc($paddingLvl6S - $lineThin) $paddingLvl5S;
 
-            border-radius: $borderRadiusHeightESM;
+            border-radius: var(--esm-btn-border-radius);
           }
 
           .icon {
@@ -1693,7 +1693,7 @@ $danger-color: var(--ff-danger);
       padding: $paddingLvl6TB $paddingLvl5LR;
 
       border: $lineThin solid $primary;
-      border-radius: $borderRadiusHeightSM !important;
+      border-radius: var(--sm-btn-border-radius) !important;
 
       resize: none;
       z-index: 1;
