@@ -1,0 +1,42 @@
+# The micro-frontend bundles and the base theme, as files in an image that never runs.
+# forms-flow-ai's web image copies them by digest (forms-flow-web-root-config/mfe-bundles.ref), so the
+# browser loads them from the web container instead of a CDN.
+#
+#   /mfe/<package>/<package>.js (+ .js.gz)        one single-spa bundle per micro-frontend
+#   /mfe/forms-flow-theme/forms-flow-theme.min.css (+ .css.gz)
+#
+# Node 16.17.0 and the build commands are the ones upstream's CD workflows use for v7.3.0.
+FROM node:16.17.0-alpine AS build
+
+# build.sh --no-cache sets CACHE_ID to start from an empty npm cache.
+ARG CACHE_ID=shared
+ENV NODE_OPTIONS=--max_old_space_size=4096
+
+WORKDIR /src
+# Lockfiles first, so a source change doesn't repeat the downloads.
+COPY forms-flow-theme/package.json forms-flow-theme/package-lock.json forms-flow-theme/
+COPY forms-flow-service/package.json forms-flow-service/package-lock.json forms-flow-service/
+COPY forms-flow-components/package.json forms-flow-components/package-lock.json forms-flow-components/
+COPY forms-flow-nav/package.json forms-flow-nav/package-lock.json forms-flow-nav/
+COPY forms-flow-admin/package.json forms-flow-admin/package-lock.json forms-flow-admin/
+COPY forms-flow-review/package.json forms-flow-review/package-lock.json forms-flow-review/
+COPY forms-flow-submissions/package.json forms-flow-submissions/package-lock.json forms-flow-submissions/
+RUN --mount=type=cache,id=ff-npm-$CACHE_ID,target=/root/.npm \
+    npm config set fetch-retries 6 && npm config set fetch-retry-maxtimeout 120000 && \
+    for p in */; do (cd "$p" && npm ci --no-audit --no-fund --loglevel=error) || exit 1; done
+
+COPY . .
+# One package at a time: each webpack build takes up to 4 GB.
+RUN set -e; \
+    mkdir -p /out/mfe; \
+    cd forms-flow-theme && npm run build && cd ..; \
+    mkdir /out/mfe/forms-flow-theme && cp forms-flow-theme/dist/forms-flow-theme.min.css /out/mfe/forms-flow-theme/; \
+    for p in forms-flow-service forms-flow-components forms-flow-nav forms-flow-admin forms-flow-review forms-flow-submissions; do \
+      (cd "$p" && npm run build:webpack); \
+      mkdir "/out/mfe/$p" && cp "$p/dist/$p.js" "/out/mfe/$p/"; \
+    done; \
+    find /out/mfe -type f -exec gzip -9 -k {} \;; \
+    ls -lR /out/mfe
+
+FROM scratch
+COPY --from=build /out/mfe /mfe
