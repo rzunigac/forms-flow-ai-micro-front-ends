@@ -85,3 +85,9 @@ font-size: var(--font-size-xs);
 font-weight: var(--font-weight-sm);
 line-height: var(--text-line-height);
 }
+
+// Label above the Me/Others selector on task details. Hidden unless a theme sets
+// --assign-user-label-display (e.g. block).
+.assign-user-label {
+  display: var(--assign-user-label-display, none);
+}

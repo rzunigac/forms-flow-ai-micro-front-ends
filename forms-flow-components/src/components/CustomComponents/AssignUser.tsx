@@ -130,18 +130,23 @@ const dropdownOptions = useMemo(() => {
     <>
       {showSelector && (manageMyTasks || assignToOthers) && (
         <>
-        <div>
-          <span
-            className="assign-user-label white-text"
-            aria-label={`${ariaLabel}-select-user-label`}
-            data-testid={`${dataTestId}-select-user-label`}
-          >
-            {t("Task assignee")}
-          </span>
-        </div>
+        {/* Hidden unless the theme sets --assign-user-label-display; it still names the group below. */}
+        {!minimized && (
+          <div className="assign-user-label">
+            <span
+              id={`${dataTestId}-select-user-label`}
+              className="white-text"
+              data-testid={`${dataTestId}-select-user-label`}
+            >
+              {t("Task assignee")}
+            </span>
+          </div>
+        )}
         <div
           className={"input-select quick-select " + (minimized?'minimized':'')}
+          role="group"
           aria-label={`${ariaLabel}-select-user-option`}
+          aria-labelledby={minimized ? undefined : `${dataTestId}-select-user-label`}
           data-testid={`${dataTestId}-select-user-option`}
         >
 

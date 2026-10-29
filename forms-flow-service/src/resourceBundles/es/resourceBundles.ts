@@ -141,7 +141,7 @@ export const RESOURCE_BUNDLES_ES = {
     "Filter Tasks": "Filtrar tareas",
     "All": "Todos",
     "ANY": "Cualquiera",
-    "Task assignee": "Asignado a",
+    "Task assignee": "Responsable",
     "Application History": "Historial de aplicación",
     "View Submission": "Ver envío",
     "Showing": "Mostrando",
